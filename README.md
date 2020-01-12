@@ -1,12 +1,11 @@
 diff-match-patch-cpp
-========================
+====================
 
 Another C++ variant of https://github.com/google/diff-match-patch.
 based on
-	- STL Port was done by Sergey Nozhenko (snhere@gmail.com) and posted on
+- STL Port was done by Sergey Nozhenko (snhere@gmail.com) and posted on
 		https://code.google.com/p/google-diff-match-patch/issues/detail?id=25
-
-	- and the weaks for std::string by leutloff@sundancer.oche.de (Christian Leutloff)
+- and the weaks for std::string by leutloff@sundancer.oche.de (Christian Leutloff)
 
 This version was done following the current C# version as close as possible algorithm wise. However, this version has some special features:
 - completely header-only as the old versions but the single large file has been splitted into separate files
@@ -18,6 +17,10 @@ This version was done following the current C# version as close as possible algo
 - everything is constexpr compatible
 
 
+Compile Example
+
+	LLVM on windows:
+		clang-cl" /O2 /Idiff-match-patch-cpp /std:c++17 diff-match-patch-cpp/example.cpp
 
 Compile and run the test cases:
 
