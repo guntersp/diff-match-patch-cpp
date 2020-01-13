@@ -19,18 +19,42 @@ This version was done following the current C# version as close as possible algo
 
 Compile Example
 
+	MSVC:
+		cl /O2 /Idiff-match-patch-cpp /std:c++17 example.cpp
+	
 	LLVM on windows:
-		clang-cl" /O2 /Idiff-match-patch-cpp /std:c++17 diff-match-patch-cpp/example.cpp
+		clang-cl /O2 /Idiff-match-patch-cpp /std:c++17 example.cpp
+	
+	LLVM on macOs/linux/unix:
+		clang++ -O2 -I diff-match-patch-cpp -std=c++17 example.cpp
 
 Compile and run the test cases:
 
+	MSVC:
+		cl /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 tests\dmp_test_string.cpp
+		cl /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 tests\dmp_test_wstring.cpp
+		cl /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 tests\dmp_test_non_allocating.cpp
+		cl /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 tests\dmp_test_constexpr.cpp
+
 	LLVM on windows:
-		clang-cl" /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 diff-match-patch-cpp\tests\dmp_test_string.cpp
-		clang-cl" /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 diff-match-patch-cpp\tests\dmp_test_wstring.cpp
-		clang-cl" /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 diff-match-patch-cpp\tests\dmp_test_non_allocating.cpp
-		clang-cl" /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 diff-match-patch-cpp\tests\dmp_test_constexpr.cpp
+		clang-cl /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 tests\dmp_test_string.cpp
+		clang-cl /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 tests\dmp_test_wstring.cpp
+		clang-cl /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 tests\dmp_test_non_allocating.cpp
+		clang-cl /O2 /Idiff-match-patch-cpp /Igoogletest\include /Igoogletest /std:c++17 tests\dmp_test_constexpr.cpp
+
+	LLVM on macOs/linux/unix:
+		clang++ -O2 -I diff-match-patch-cpp -I googletest/include -I googletest -std=c++17 tests/dmp_test_string.cpp
+		clang++ -O2 -I diff-match-patch-cpp -I googletest/include -I googletest -std=c++17 tests/dmp_test_wstring.cpp
+		clang++ -O2 -I diff-match-patch-cpp -I googletest/include -I googletest -std=c++17 tests/dmp_test_non_allocating.cpp
+		clang++ -O2 -I diff-match-patch-cpp -I googletest/include -I googletest -std=c++17 tests/dmp_test_constexpr.cpp
 
 Compile and run the speedtest - requires the files speedtest1.txt and speedtest2.txt for comparison:
 
+	MSVC:
+		cl /O2 /Idiff-match-patch-cpp /std:c++17 tests\dmp_speedtest_wstring.cpp
+
 	LLVM on windows:
-		clang-cl" /O2 /Idiff-match-patch-cpp /std:c++17 diff-match-patch-cpp\tests\dmp_speedtest_wstring.cpp
+		clang-cl /O2 /Idiff-match-patch-cpp /std:c++17 tests\dmp_speedtest_wstring.cpp
+
+	LLVM on macOs/linux/unix:
+		clang++ -O2 -I diff-match-patch-cpp -std=c++17 tests/dmp_speedtest_wstring.cpp
