@@ -26,22 +26,23 @@
  *
  * STL-only port by snhere@gmail.com (Sergey Nozhenko)
  * and some tweaks for std::string by leutloff@sundancer.oche.de (Christian Leutloff)
- * rebased on the current C# version and added constexpr-ness by ...@... (Gunter Spöcker):
+ * rebased on the current C# version and added constexpr-ness by guntersp0@gmail.com (Gunter Spöcker):
 */
 
 
-#include "traits/dmp_clock_traits_chrono.h"
-#include "traits/dmp_container_traits_std.h"
-#include "traits/dmp_string_traits_wstring.h"
+#include "dmp/traits/dmp_clock_traits_chrono.h"
+#include "dmp/traits/dmp_container_traits_std.h"
+#include "dmp/traits/dmp_string_traits_wstring.h"
 
-#include "diff_match_patch.h"
+#include "dmp/diff_match_patch.h"
+
 #include <string>
 #include <iostream>
 
 using namespace dmp;
 using namespace std;
 
-int main(int argc, char **argv) {
+int main(int /*argc*/, char **/*argv*/) {
     diff_match_patch<all_traits<std_wstring_traits, chrono_clock_traits, std_container_traits>> dmp;
 
     wstring str1 = L"First string in diff";
@@ -55,13 +56,3 @@ int main(int argc, char **argv) {
     std::wcout << strResult << "\n";
     return 0;
 }
-
-/*
-Compile instructions for LLVM:
-clang++ -O2 -o diff_match_patch -I diff-match-patch -std=c++17 example.cpp
-
-Compile instructions for LLVM on windows:
-clang-cl" /O2 /Idiff-match-patch /std:c++17 example.cpp
-
-dmp_test_wstring.exe
-*/
