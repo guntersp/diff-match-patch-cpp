@@ -52,7 +52,9 @@ int main(int argc, char **argv) {
 
 #include <catch2/catch.hpp>
 
-//#define DISABLE_VERY_LONG_STRING_TEST
+#ifndef DISABLE_VERY_LONG_STRING_TEST
+//#   define DISABLE_VERY_LONG_STRING_TEST
+#endif
 
 
 #include "dmp/traits/dmp_clock_traits_chrono.h"
