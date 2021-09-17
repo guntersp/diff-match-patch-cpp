@@ -805,11 +805,11 @@ inline static constexpr bool diff_deltaTest() noexcept {
         // to remove/add
 
         // L'\u0680' = '\xda', '\x80'
-        char_t s1[] = { static_cast<char_t>('\xda'), static_cast<char_t>('\x80'), ' ', zero, ' ', '\t', ' ', '%' };
-        char_t s2[] = { static_cast<char_t>('\xda'), static_cast<char_t>('\x81'), ' ', one, ' ', '\n', ' ', '^' };
-        char_t s3[] = { static_cast<char_t>('\xda'), static_cast<char_t>('\x82'), ' ', two, ' ', '\\', ' ', '|' };
-        char_t s4[] = { static_cast<char_t>('\xda'), static_cast<char_t>('\x80'), ' ', zero, ' ', '\t', ' ', '%',
-                        static_cast<char_t>('\xda'), static_cast<char_t>('\x81'), ' ', one,  ' ', '\n', ' ', '^' };
+        char_t s1[] = { static_cast<char_t>(static_cast<int>('\xda')), static_cast<char_t>(static_cast<int>('\x80')), ' ', zero, ' ', '\t', ' ', '%' };
+        char_t s2[] = { static_cast<char_t>(static_cast<int>('\xda')), static_cast<char_t>(static_cast<int>('\x81')), ' ', one, ' ', '\n', ' ', '^' };
+        char_t s3[] = { static_cast<char_t>(static_cast<int>('\xda')), static_cast<char_t>(static_cast<int>('\x82')), ' ', two, ' ', '\\', ' ', '|' };
+        char_t s4[] = { static_cast<char_t>(static_cast<int>('\xda')), static_cast<char_t>(static_cast<int>('\x80')), ' ', zero, ' ', '\t', ' ', '%',
+                        static_cast<char_t>(static_cast<int>('\xda')), static_cast<char_t>(static_cast<int>('\x81')), ' ', one,  ' ', '\n', ' ', '^' };
 
         diffs.clear();
         diffs.addAll(Diff(Operation::EQUAL, string_view_t(s1, dmp::utils::array_size(s1))),
