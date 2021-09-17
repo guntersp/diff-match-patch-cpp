@@ -103,7 +103,7 @@ struct diff_match_patch_patch {
         using parent::parent;
 
 
-        inline constexpr patches_t(const patches_t& o) noexcept {
+        inline constexpr patches_t(const patches_t& o) noexcept : parent{} {
             parent::reserve(o.size());
             for (auto& d : o) {
                 parent::push_back(d);
@@ -375,10 +375,10 @@ public:
 
                 // Update the current character count.
                 if (aDiff.operation != Operation::INSERT) {
-                    char_count1 += aDiff.text.length();
+                    char_count1 += static_cast<int>(aDiff.text.length());
                 }
                 if (aDiff.operation != Operation::DELETE) {
-                    char_count2 += aDiff.text.length();
+                    char_count2 += static_cast<int>(aDiff.text.length());
                 }
             }
         }
@@ -477,7 +477,7 @@ public:
                     diffs_t diffs;
                     dmp_diff::diff_main(settings, diffs, pool, text1, text2, false);
                     if (text1.length() > static_cast<size_t>(settings.Match_MaxBits)
-                        && commons::diff_levenshtein(diffs) / static_cast<float>(text1.length()) > settings.Patch_DeleteThreshold) {
+                        && static_cast<float>(commons::diff_levenshtein(diffs)) / static_cast<float>(text1.length()) > settings.Patch_DeleteThreshold) {
                         // The end points match, but the content is unacceptably bad.
                         results[static_cast<size_t>(x)] = false;
                     } else {

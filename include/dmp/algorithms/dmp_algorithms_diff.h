@@ -854,7 +854,7 @@ public:
                 auto          overlap_length1 = commons::diff_commonOverlap(deletion, insertion);
                 auto          overlap_length2 = commons::diff_commonOverlap(insertion, deletion);
                 if (overlap_length1 >= overlap_length2) {
-                    if (overlap_length1 >= deletion.length() / 2.0 || overlap_length1 >= insertion.length() / 2.0) {
+                    if (overlap_length1 >= deletion.length() / 2 || overlap_length1 >= insertion.length() / 2) {
                         // Overlap found.
                         // Insert an equality and trim the surrounding edits.
                         diffs.splice(pointer < 0 ? 0 : static_cast<size_t>(pointer), 0,
@@ -864,7 +864,7 @@ public:
                         pointer++;
                     }
                 } else {
-                    if (overlap_length2 >= deletion.length() / 2.0 || overlap_length2 >= insertion.length() / 2.0) {
+                    if (overlap_length2 >= deletion.length() / 2 || overlap_length2 >= insertion.length() / 2) {
                         // Reverse overlap found.
                         // Insert an equality and swap and trim the surrounding edits.
                         diffs.splice(pointer < 0 ? 0 : static_cast<size_t>(pointer), 0,

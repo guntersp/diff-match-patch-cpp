@@ -440,7 +440,7 @@ public:
 
         container.null = !parent::patch_fromText(*container.elements, container.stringPool, textline);
         container.stringPool.resetOriginalTexts();
-        return std::move(container);
+        return container;
     }
 
 
@@ -464,7 +464,7 @@ public:
         container.null = false;
         parent::patch_make(static_cast<const settings_t&>(*this), *container.elements, container.stringPool, text1, text2);
         container.stringPool.resetOriginalTexts();
-        return std::move(container);
+        return container;
     }
 
     /**
@@ -478,7 +478,7 @@ public:
         Patches container;
         container.null = diffs.null;
         parent::patch_make(static_cast<const settings_t&>(*this), *container.elements, container.stringPool, *diffs.elements);
-        return std::move(container);
+        return container;
     }
 
     /**

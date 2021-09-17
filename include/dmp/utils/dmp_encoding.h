@@ -144,7 +144,7 @@ struct generic_safe_char_helper {
             safe[static_cast<size_t>(c)] = i + 1;
 
             if (c >= 'A' && c <= 'Z') {
-                c = 'a' + (c - 'A');
+                c = 'a' + static_cast<char>(c - 'A');
             }
             hex_output_chars[i] = c;
         }
