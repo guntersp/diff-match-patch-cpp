@@ -248,7 +248,7 @@ private:
     inline static constexpr double match_bitapScore(const settings_t& settings, size_t e, size_t x, size_t loc, string_view_t pattern) noexcept {
         using namespace dmp::utils;
 
-        float accuracy  = static_cast<float>(e) / pattern.length();
+        float accuracy  = static_cast<float>(e) / static_cast<float>(pattern.length());
         auto  proximity = loc >= x ? loc - x : x - loc;
         if (settings.Match_Distance == 0) {
             // Dodge divide by zero error.

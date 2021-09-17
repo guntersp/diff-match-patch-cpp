@@ -103,7 +103,7 @@ struct diff_match_patch_common {
         using parent::parent;
 
 
-        inline constexpr diffs_t(const diffs_t& o) noexcept {
+        inline constexpr diffs_t(const diffs_t& o) noexcept : parent() {
             parent::reserve(o.size());
             for (auto& d : o) {
                 parent::push_back(d);

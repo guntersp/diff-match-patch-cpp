@@ -71,8 +71,8 @@ struct clock_traits<ChronoTimePoint> {
 
         inline constexpr chrono_clock() noexcept {};
 
-        inline constexpr chrono_clock(const ChronoTimePoint& time) noexcept
-            : time(time) {}
+        inline constexpr chrono_clock(const ChronoTimePoint& _time) noexcept
+            : time(_time) {}
 
         inline static chrono_clock now() noexcept { return { std::chrono::system_clock::now() }; }
 

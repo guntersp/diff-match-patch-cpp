@@ -542,7 +542,7 @@ public:
         }
         // Strip the padding off.
         text = text.substring(nullPadding.length(), text.length() - 2 * nullPadding.length());
-        return std::move(result);
+        return result;
     }
 
 
