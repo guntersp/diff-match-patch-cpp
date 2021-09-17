@@ -659,7 +659,7 @@ public:
                     if (diff_type == Operation::INSERT) {
                         // Insertions are harmless.
                         patch.length2 += diff_text.length();
-                        start2 += diff_text.length();
+                        start2 += static_cast<int>(diff_text.length());
                         patch.diffs.push_back(bigpatch.diffs[bpi]);
                         bpi++;
                         empty = false;
@@ -667,7 +667,7 @@ public:
                                && diff_text.length() > static_cast<size_t>(2 * static_cast<int>(patch_size))) {
                         // This is a large deletion.  Let it pass in one chunk.
                         patch.length1 += diff_text.length();
-                        start1 += diff_text.length();
+                        start1 += static_cast<int>(diff_text.length());
                         empty = false;
                         patch.diffs.push_back(diff_t(diff_type, diff_text));
                         bpi++;
@@ -675,10 +675,10 @@ public:
                         // Deletion or equality.  Only take as much as we can stomach.
                         diff_text = diff_text.substring(size_t(0), static_cast<size_t>(min(static_cast<int>(diff_text.length()), static_cast<int>(patch_size) - static_cast<int>(patch.length1) - settings.Patch_Margin)));
                         patch.length1 += diff_text.length();
-                        start1 += diff_text.length();
+                        start1 += static_cast<int>(diff_text.length());
                         if (diff_type == Operation::EQUAL) {
                             patch.length2 += diff_text.length();
-                            start2 += diff_text.length();
+                            start2 += static_cast<int>(diff_text.length());
                         } else {
                             empty = false;
                         }
