@@ -192,7 +192,7 @@ public:
         container.null = false;
         parent::diff_bisect(*this, *container.elements, container.stringPool, text1, text2, deadline);
         container.stringPool.resetOriginalTexts();
-        return std::move(container);
+        return container;
     }
 
 

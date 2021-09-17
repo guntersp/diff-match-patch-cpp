@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
 
 #include <catch2/catch.hpp>
 
-#define DONT_COMPILE_CONSTEXPR_TESTS
+
 
 #define DEFINE_TEST(Traits, Group, Test)                                                                                                            \
     TEST_CASE(#Traits "_DiffMatchPatch_" #Group "_" #Test, #Group "_" #Traits) { STATIC_REQUIRE(Group##_##Test()); }

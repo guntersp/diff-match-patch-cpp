@@ -207,7 +207,7 @@ public:
         container.null = false;
         parent::diff_main(*this, *container.elements, container.stringPool, text1, text2, true);
         container.stringPool.resetOriginalTexts();
-        return std::move(container);
+        return container;
     }
 
 
@@ -233,7 +233,7 @@ public:
         container.null = false;
         parent::diff_main(*this, *container.elements, container.stringPool, text1, text2, checklines);
         container.stringPool.resetOriginalTexts();
-        return std::move(container);
+        return container;
     }
 
 
@@ -331,7 +331,7 @@ public:
         container.null = !parent::diff_fromDelta(*container.elements, container.stringPool, text1, delta);
         container.stringPool.resetOriginalTexts();
 
-        return std::move(container);
+        return container;
     }
 
 
@@ -514,7 +514,7 @@ public:
         container.null = diffs.null;
         parent::patch_make(static_cast<const settings_t&>(*this), *container.elements, container.stringPool, text1, *diffs.elements);
         container.stringPool.resetOriginalTexts();
-        return std::move(container);
+        return container;
     }
 
     /**

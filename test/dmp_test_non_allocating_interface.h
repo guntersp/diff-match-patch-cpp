@@ -241,7 +241,7 @@ public:
         container.null = false;
         parent::diff_main(*this, container.elements, stringPool, text1, text2, true);
         stringPool.resetOriginalTexts();
-        return std::move(container);
+        return container;
     }
 
 
@@ -370,7 +370,7 @@ public:
         container.null = !parent::diff_fromDelta(container.elements, stringPool, text1, delta);
         stringPool.resetOriginalTexts();
 
-        return std::move(container);
+        return container;
     }
 
 
