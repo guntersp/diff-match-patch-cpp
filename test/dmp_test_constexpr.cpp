@@ -58,7 +58,9 @@ int main(int argc, char **argv) {
 
 
 
-#define DISABLE_VERY_LONG_STRING_TEST
+#ifndef DISABLE_VERY_LONG_STRING_TEST
+#   define DISABLE_VERY_LONG_STRING_TEST
+#endif
 #define DONT_INCLUDE_STD_STRINGVIEW
 #define NON_ALLOCATING_MAX_STRING_SIZE 1152
 
