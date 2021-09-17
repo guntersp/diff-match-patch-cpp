@@ -141,7 +141,7 @@ struct generic_safe_char_helper {
         for (size_t i = 0; i < length; i++) {
             auto c = safe_chars[i];
 
-            safe[static_cast<size_t>(c)] = static_cast<size_t>(i + 1);
+            safe[static_cast<size_t>(c)] = i + 1;
 
             if (c >= 'A' && c <= 'Z') {
                 c = 'a' + (c - 'A');

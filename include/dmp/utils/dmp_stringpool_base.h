@@ -92,21 +92,21 @@ struct string_pool_base {
 
         inline constexpr original_texts_data() noexcept {}
 
-        inline constexpr original_texts_data(const original_texts* texts, size_t num) noexcept
-            : texts(texts)
-            , num(num) {}
+        inline constexpr original_texts_data(const original_texts* _texts, size_t _num) noexcept
+            : texts(_texts)
+            , num(_num) {}
     };
     original_texts_data textsData;
     
     
     template <size_t size>
-    inline constexpr string_pool_base(creator createNext, const original_texts (&texts)[size]) noexcept
-        : createNext(createNext)
-        , textsData { texts, size } {}
+    inline constexpr string_pool_base(creator _createNext, const original_texts (&_texts)[size]) noexcept
+        : createNext(_createNext)
+        , textsData { _texts, size } {}
 
-    inline constexpr string_pool_base(creator createNext, const original_texts* texts, size_t size) noexcept
-        : createNext(createNext)
-        , textsData { texts, size } {}
+    inline constexpr string_pool_base(creator _createNext, const original_texts* _texts, size_t _size) noexcept
+        : createNext(_createNext)
+        , textsData { _texts, _size } {}
 
     template <size_t size>
     inline constexpr void setOriginalTexts(const original_texts (&texts)[size]) noexcept {

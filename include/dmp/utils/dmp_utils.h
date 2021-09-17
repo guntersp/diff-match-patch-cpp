@@ -239,7 +239,7 @@ template <typename List>
 inline static constexpr bool splice_base(List& list, size_t start, size_t remove, size_t insert) noexcept {
     size_t s(list.size());
 
-    return splice_base(list, s, start, remove, insert, [](List& list, size_t s) { list.resize(s); });
+    return splice_base(list, s, start, remove, insert, [](List& _list, size_t _s) { _list.resize(_s); });
 }
 
 }  // namespace internal
