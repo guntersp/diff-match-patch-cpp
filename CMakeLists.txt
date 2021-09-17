@@ -79,6 +79,9 @@ endif()
 
 
 
+
+
+
 #find_package(fmt)
 #find_package(spdlog)
 #find_package(docopt)
@@ -102,6 +105,13 @@ target_link_libraries(${PROJECT_NAME}
   )
 
 
+option(DISABLE_VERY_LONG_STRING_TEST "Disable very long running string tests" OFF)
+if(DISABLE_VERY_LONG_STRING_TEST)
+  # Add for any project you want to apply unity builds for
+  target_compile_definitions(${PROJECT_NAME} PUBLIC "DISABLE_VERY_LONG_STRING_TEST")
+endif()
+
+
 add_subdirectory(include)
 add_subdirectory(src)
 
@@ -110,6 +120,7 @@ if(ENABLE_UNITY)
   # Add for any project you want to apply unity builds for
   set_target_properties(intro PROPERTIES UNITY_BUILD ON)
 endif()
+
 
 
 
