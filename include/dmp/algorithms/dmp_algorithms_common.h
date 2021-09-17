@@ -95,9 +95,9 @@ struct diff_match_patch_common {
     using Operation = typename types::Operation;
 
     using diff_t = types::diff<string_traits>;
+
     struct diffs_t : public container_traits::template diffs_list<diff_t> {
         using parent    = typename container_traits::template diffs_list<diff_t>;
-        using diff_t    = diff_match_patch_common::diff_t;
         using element_t = diff_t;
 
         using parent::parent;

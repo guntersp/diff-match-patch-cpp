@@ -67,7 +67,7 @@ namespace types {
 template <typename _diffs_t>
 struct patch {
     using diffs_t = _diffs_t;
-    using diff_t  = typename diffs_t::diff_t;
+    using diff_t  = typename diffs_t::element_t;
 
     using string_view_t = typename diff_t::string_view_t;
     using char_traits   = typename diff_t::char_traits;

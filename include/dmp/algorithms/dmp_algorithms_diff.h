@@ -234,13 +234,13 @@ protected:
         constexpr HalfMatchResult& operator=(const HalfMatchResult&) = default;
         constexpr HalfMatchResult& operator=(HalfMatchResult&&) = default;
 
-        inline constexpr HalfMatchResult(string_view_t best_longtext_a, string_view_t best_longtext_b, string_view_t best_shorttext_a,
-                                         string_view_t best_shorttext_b, string_view_t best_common) noexcept
-            : best_longtext_a(best_longtext_a)
-            , best_longtext_b(best_longtext_b)
-            , best_shorttext_a(best_shorttext_a)
-            , best_shorttext_b(best_shorttext_b)
-            , best_common(best_common) {}
+        inline constexpr HalfMatchResult(string_view_t _best_longtext_a, string_view_t _best_longtext_b, string_view_t _best_shorttext_a,
+                                         string_view_t _best_shorttext_b, string_view_t _best_common) noexcept
+            : best_longtext_a(_best_longtext_a)
+            , best_longtext_b(_best_longtext_b)
+            , best_shorttext_a(_best_shorttext_a)
+            , best_shorttext_b(_best_shorttext_b)
+            , best_common(_best_common) {}
 
         inline constexpr bool operator==(const HalfMatchResult& o) const noexcept {
             return best_longtext_a == o.best_longtext_a && best_longtext_b == o.best_longtext_b && best_shorttext_a == o.best_shorttext_a

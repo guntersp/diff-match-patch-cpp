@@ -88,9 +88,9 @@ struct diff {
      * @param operation One of INSERT, DELETE or EQUAL.
      * @param text The text being applied.
      */
-    inline constexpr diff(Operation operation, string_view_t text) noexcept
-        : operation(operation)
-        , text(text) {
+    inline constexpr diff(Operation _operation, string_view_t _text) noexcept
+        : operation(_operation)
+        , text(_text) {
         // Construct a diff with the specified operation and text.
     }
 
