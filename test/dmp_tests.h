@@ -392,9 +392,10 @@ struct DiffMatchPatch_diff : public test_traits {
 
 #ifndef DISABLE_VERY_LONG_STRING_TEST
         // More than 65536 to verify any 16-bit limitation.
+        n = 66000;
         {
             lines.clear();
-            n = 66000;
+            lines.reserve(n);
             for (size_t i = 0; i < n; i++) {
                 stringstream_t s;
                 writeToStream(s, i);
@@ -408,6 +409,8 @@ struct DiffMatchPatch_diff : public test_traits {
         dmp.diff_linesToChars(result, lines, STR(""), tmpResult);
         diffs.clear();
         ediffs.clear();
+        diffs.reserve(n);
+        ediffs.reserve(n);
         ediffs.addAll(ediff_t(Operation::INSERT, result[0]));
         dmp.diff_charsToLines(diffs, pool, ediffs, tmpResult);
         assertEquals("diff_charsToLines: More than 65536.", lines, diffs[0].text);
