@@ -69,8 +69,8 @@ struct container_base {
 
     bool null = false;
 
-    inline constexpr container_base(container&& elements) noexcept
-        : elements(std::move(elements)) {}
+    inline constexpr container_base(container&& _elements) noexcept
+        : elements(std::move(_elements)) {}
 
     constexpr container_base(container_base&&) noexcept = default;
     constexpr container_base& operator=(container_base&&) noexcept = default;

@@ -71,7 +71,7 @@ struct diff_match_patch_base : public diff_match_patch_diff<all_traits>,
     using algorithm_match = diff_match_patch_match<all_traits>;
     using algorithm_patch = diff_match_patch_patch<all_traits>;
 
-    using settings_t = typename types::settings;
+    using settings_t = types::settings;
 
     using string_pool_t = typename algorithm_diff::string_pool_t;
 

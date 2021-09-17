@@ -98,7 +98,6 @@ struct diff_match_patch_patch {
     using patch_t = types::patch<diffs_t>;
     struct patches_t : public container_traits::template patches_list<patch_t> {
         using parent    = typename container_traits::template patches_list<patch_t>;
-        using patch_t   = diff_match_patch_patch::patch_t;
         using element_t = patch_t;
 
         using parent::parent;

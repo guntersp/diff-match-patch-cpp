@@ -92,7 +92,7 @@ struct diff_match_patch_common {
     using string_pool_t = typename string_traits::template string_pool_t<string_view_t, owning_string_t, string_pool_list_t>;
 
 
-    using Operation = typename types::Operation;
+    using Operation = types::Operation;
 
     using diff_t = types::diff<string_traits>;
 
