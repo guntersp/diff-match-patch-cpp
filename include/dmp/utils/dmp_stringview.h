@@ -68,13 +68,13 @@ struct minimal_string_view {
 
     inline constexpr minimal_string_view() noexcept {}
 
-    inline constexpr minimal_string_view(const char_t* ptr) noexcept
-        : ptr(ptr)
+    inline constexpr minimal_string_view(const char_t* _ptr) noexcept
+        : ptr(_ptr)
         , len(stringLength(ptr)) {}
 
-    inline constexpr minimal_string_view(const char_t* ptr, size_t len) noexcept
-        : ptr(ptr)
-        , len(len) {}
+    inline constexpr minimal_string_view(const char_t* _ptr, size_t _len) noexcept
+        : ptr(_ptr)
+        , len(_len) {}
 
 
     constexpr minimal_string_view(const minimal_string_view&) noexcept = default;

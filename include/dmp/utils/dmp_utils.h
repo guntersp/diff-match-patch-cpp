@@ -500,7 +500,7 @@ inline constexpr size_t toString(char_t* data, size_t maxLength, Type value) {
     while (value != 0) {
         v = value % 10;
 
-        if (!put('0' + static_cast<char_t>(v))) {
+        if (!put(static_cast<char_t>('0' + v))) {
             return {};
         }
 

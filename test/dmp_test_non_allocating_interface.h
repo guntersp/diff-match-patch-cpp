@@ -272,7 +272,7 @@ public:
         } else {
             parent::diff_main(*this, container.elements, stringPool, text1, text2, checklines);
         }
-        return std::move(container);
+        return container;
     }
 
 
@@ -453,7 +453,7 @@ public:
         container.null = false;
         parent::diff_bisect(*this, container.elements, stringPool, text1, text2, deadline);
         stringPool.resetOriginalTexts();
-        return std::move(container);
+        return container;
     }
 
 
@@ -585,7 +585,7 @@ public:
 
         container.null = !parent::patch_fromText(container.elements, stringPool, textline);
         stringPool.resetOriginalTexts();
-        return std::move(container);
+        return container;
     }
 
 
@@ -614,7 +614,7 @@ public:
             parent::patch_make(*this, container.elements, stringPool, text1, text2);
         }
 
-        return std::move(container);
+        return container;
     }
 
     /**
@@ -628,7 +628,7 @@ public:
         Patches container;
         container.null = diffs.null;
         parent::patch_make(static_cast<const settings_t&>(*this), container.elements, stringPool, diffs.elements);
-        return std::move(container);
+        return container;
     }
 
     /**
@@ -669,7 +669,7 @@ public:
             parent::patch_make(*this, container.elements, stringPool, text1, diffs.elements);
         }
 
-        return std::move(container);
+        return container;
     }
 
     /**

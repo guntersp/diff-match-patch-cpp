@@ -72,8 +72,8 @@ struct clock_traits<void> {
 
         constexpr null_clock() noexcept = default;
 
-        inline constexpr null_clock(type time) noexcept
-            : time(time) {}
+        inline constexpr null_clock(type _time) noexcept
+            : time(_time) {}
 
         inline static constexpr null_clock now() noexcept { return { 0 }; }
 
