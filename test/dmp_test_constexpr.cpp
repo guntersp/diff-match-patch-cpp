@@ -51,7 +51,10 @@ int main(int argc, char **argv) {
 
 #include <catch2/catch.hpp>
 
-#define DONT_COMPILE_CONSTEXPR_TESTS
+#if !defined(DONT_COMPILE_CONSTEXPR_TESTS) && defined(BUILDSERVER_MODE)
+// for now, was not yet working with gcc on ubuntu 
+#   define DONT_COMPILE_CONSTEXPR_TESTS
+#endif
 
 #define DEFINE_TEST(Traits, Group, Test)                                                                                                            \
     TEST_CASE(#Traits "_DiffMatchPatch_" #Group "_" #Test, #Group "_" #Traits) { STATIC_REQUIRE(Group##_##Test()); }
