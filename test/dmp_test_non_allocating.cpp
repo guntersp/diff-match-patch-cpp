@@ -92,7 +92,9 @@ DEFINE_TEST(non_allocating, DiffMatchPatch_diff, deltaTest)
 DEFINE_TEST(non_allocating, DiffMatchPatch_diff, xIndexTest)
 DEFINE_TEST(non_allocating, DiffMatchPatch_diff, levenshteinTest)
 DEFINE_TEST(non_allocating, DiffMatchPatch_diff, bisectTest)
+#ifndef _WIN32 // stack overflow on github build server
 DEFINE_TEST(non_allocating, DiffMatchPatch_diff, mainTest)
+#endif
 
 DEFINE_TEST(non_allocating, DiffMatchPatch_match, alphabetTest)
 DEFINE_TEST(non_allocating, DiffMatchPatch_match, bitapTest)

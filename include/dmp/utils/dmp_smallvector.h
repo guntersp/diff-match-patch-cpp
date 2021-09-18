@@ -131,11 +131,11 @@ public:
     }
 
     inline constexpr type& operator[](size_t index) noexcept {
-        DMP_ASSERT(index >= 0 && index < _size);
+        DMP_ASSERT(index < _size);
         return _data[index];
     }
     inline constexpr const type& operator[](size_t index) const noexcept {
-        DMP_ASSERT(index >= 0 && index < _size);
+        DMP_ASSERT(index < _size);
         return _data[index];
     }
 
