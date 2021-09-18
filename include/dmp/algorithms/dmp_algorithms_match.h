@@ -193,7 +193,7 @@ protected:
 
             rd.clear();
             rd.resize(finish + 2, 0);
-            rd[finish + 1] = static_cast<size_t>(1 << d) - 1;
+            rd[finish + 1] = static_cast<size_t>(size_t(1) << d) - 1;
             for (size_t j = finish; j >= start; j--) {
                 int charMatch = 0;
                 if (tl <= j - 1) {
@@ -268,7 +268,7 @@ protected:
         // s.reserve(64);
         size_t i = 0;
         for (auto& c : pattern) {
-            s[c] |= static_cast<size_t>(1 << (l - i - 1));
+            s[c] |= static_cast<size_t>(size_t(1) << (l - i - 1));
             i++;
         }
     }
