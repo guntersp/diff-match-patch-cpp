@@ -104,8 +104,13 @@ target_link_libraries(${PROJECT_NAME}
 #   spdlog::spdlog
   )
 
+option(BUILDSERVER_MODE "Buildserver Mode, no Speedtest" OFF)
+if(BUILDSERVER_MODE)
+  # Add for any project you want to apply unity builds for
+  target_compile_definitions(${PROJECT_NAME} PUBLIC "BUILDSERVER_MODE")
+endif()
 
-option(DISABLE_VERY_LONG_STRING_TEST "Disable very long running string tests" OFF)
+option(DISABLE_VERY_LONG_STRING_TEST "Disable very long running string tests" ${BUILDSERVER_MODE})
 if(DISABLE_VERY_LONG_STRING_TEST)
   # Add for any project you want to apply unity builds for
   target_compile_definitions(${PROJECT_NAME} PUBLIC "DISABLE_VERY_LONG_STRING_TEST")

@@ -59,6 +59,7 @@ int main(int argc, char **argv) {
 #include <iostream>
 #include <fstream>
 
+#ifndef BUILDSERVER_MODE
 
 namespace {
 using traits = dmp::all_traits<dmp::std_wstring_traits, dmp::chrono_clock_traits, dmp::std_container_traits>;
@@ -149,4 +150,6 @@ int main(int /*argc*/, char** /*argv*/) {
 #include <catch2/catch.hpp>
 
     TEST_CASE("speedtest", "speetest") { runspeedtest(); }
+#endif
+
 #endif
